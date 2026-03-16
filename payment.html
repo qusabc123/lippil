@@ -44,7 +44,17 @@
 
       <section class="payment-form">
         <h3>支付确认表单</h3>
-        <form method="POST" action="/.netlify/functions/confirm-payment">
+        <form
+          name="payment-confirm"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          action="/thanks.html"
+        >
+          <input type="hidden" name="form-name" value="payment-confirm" />
+          <p class="hidden-field">
+            <label>不要填写：<input name="bot-field" /></label>
+          </p>
           <input type="text" name="tool_name" placeholder="工具名称（如已提交）" />
           <input type="email" name="email" placeholder="联系邮箱" required />
           <select name="plan" id="planSelect" required>
