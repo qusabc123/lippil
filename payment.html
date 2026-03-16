@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>支付与确认 · 锦鲤</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbit"></div>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">锦鲤</span>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html#discover">发现</a>
+        <a href="index.html#featured">精选</a>
+        <a href="index.html#pricing">定价</a>
+        <a href="index.html#submit">提交</a>
+      </nav>
+      <button class="cta-btn" data-action="newsletter">订阅每周清单</button>
+    </header>
+
+    <main>
+      <section class="category-hero">
+        <h1>支付与确认</h1>
+        <p>支持微信与支付宝。支付后填写确认表单即可。</p>
+      </section>
+
+      <section class="payment-grid">
+        <div class="payment-card">
+          <h3>微信支付</h3>
+          <img src="assets/wechat.jpg" alt="WeChat Pay QR" />
+          <p>请使用微信扫码支付</p>
+        </div>
+        <div class="payment-card">
+          <h3>支付宝</h3>
+          <img src="assets/alipay.jpg" alt="Alipay QR" />
+          <p>请使用支付宝扫码支付</p>
+        </div>
+      </section>
+
+      <section class="payment-form">
+        <h3>支付确认表单</h3>
+        <form method="POST" action="/.netlify/functions/confirm-payment">
+          <input type="text" name="tool_name" placeholder="工具名称（如已提交）" />
+          <input type="email" name="email" placeholder="联系邮箱" required />
+          <select name="plan" id="planSelect" required>
+            <option value="">选择套餐</option>
+            <option value="fast">加急收录（￥199）</option>
+            <option value="sponsor">品牌赞助（￥899 / 月）</option>
+          </select>
+          <input type="text" name="amount" id="amountInput" placeholder="支付金额" required />
+          <select name="method" required>
+            <option value="">支付方式</option>
+            <option value="wechat">微信</option>
+            <option value="alipay">支付宝</option>
+          </select>
+          <input type="text" name="order_ref" placeholder="支付订单号/备注" />
+          <input type="url" name="proof_url" placeholder="支付截图链接（可选）" />
+          <button class="primary" type="submit">提交确认</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h4>锦鲤</h4>
+        <p>帮助你构建更高效的 AI 工具组合。</p>
+      </div>
+      <div>
+        <h4>导航</h4>
+        <a href="index.html#discover">发现</a>
+        <a href="index.html#pricing">定价</a>
+        <a href="index.html#submit">提交</a>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <p>qusabc123@outlook.com</p>
+        <p>上海 · 远程</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

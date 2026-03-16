@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "tools"
+    label: "Tools"
+    files:
+      - name: "tools"
+        label: "Tools List"
+        file: "data/tools.json"
+        format: "json"
+        fields:
+          - label: "Tools"
+            name: "tools"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "写作与文案", value: "writing" }
+                  - { label: "设计与图片", value: "design" }
+                  - { label: "视频与音频", value: "video" }
+                  - { label: "开发与数据", value: "dev" }
+                  - { label: "商业与增长", value: "business" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Tags", name: "tags", widget: "list" }
+              - { label: "Official Link", name: "link", widget: "string" }
+              - { label: "Affiliate Link", name: "affiliate", widget: "string", required: false }
+              - { label: "Featured", name: "featured", widget: "boolean", required: false }

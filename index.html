@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 工具导航</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbit"></div>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">锦鲤</span>
+      </div>
+      <nav class="site-nav">
+        <a href="#discover">发现</a>
+        <a href="#featured">精选</a>
+        <a href="#sponsors">赞助</a>
+        <a href="#pricing">定价</a>
+        <a href="#collections">清单</a>
+        <a href="#newsletter">订阅</a>
+        <a href="#submit">提交</a>
+      </nav>
+      <button class="cta-btn" data-action="newsletter">订阅每周清单</button>
+    </header>
+
+    <main>
+      <section class="hero" id="discover">
+        <div class="hero-copy">
+          <p class="hero-tag">面向创作者与团队的 AI 工具地图</p>
+          <h1>用更少时间找到更对的 AI 工具</h1>
+          <p class="hero-sub">
+            真实 AI 工具合集，按场景与能力整理。支持搜索与标签筛选，帮你快速搭建写作、
+            设计、编程、视频与商业流程。
+          </p>
+          <div class="hero-actions">
+            <button class="primary">开始探索</button>
+            <button class="ghost" data-action="newsletter">获取每周更新</button>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-top">
+            <span>当前收录</span>
+            <span class="pill"><span id="count-total">0</span> 款</span>
+          </div>
+          <div class="panel-metric">
+            <h2>官网入口</h2>
+            <p>所有工具链接均直达官方站点或产品页</p>
+            <div class="rating">
+              <span id="count-total-main">0</span>
+              <div class="metric-label">款工具持续更新</div>
+            </div>
+          </div>
+          <div class="panel-grid">
+            <div>
+              <h3 id="count-writing">0</h3>
+              <p>写作与文案</p>
+            </div>
+            <div>
+              <h3 id="count-design">0</h3>
+              <p>设计与图片</p>
+            </div>
+            <div>
+              <h3 id="count-video">0</h3>
+              <p>视频与音频</p>
+            </div>
+            <div>
+              <h3 id="count-dev">0</h3>
+              <p>开发与数据</p>
+            </div>
+            <div>
+              <h3 id="count-business">0</h3>
+              <p>商业与增长</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured" id="featured">
+        <div class="featured-head">
+          <h2>本周精选工具</h2>
+          <p>根据上新速度与用户评价筛选，适合立即上手。</p>
+        </div>
+        <div class="cards" id="featuredCards"></div>
+      </section>
+
+      <section class="search-section">
+        <div class="search-box">
+          <input id="searchInput" type="text" placeholder="搜索：文案、设计、客服、视频、数据..." />
+          <button id="clearBtn">清空</button>
+        </div>
+        <p class="disclaimer">提示：部分工具链接为推广链接，价格与政策以官网为准。</p>
+        <div class="filter-row" id="filterRow">
+          <button class="filter active" data-filter="all">全部</button>
+          <button class="filter" data-filter="writing">写作与文案</button>
+          <button class="filter" data-filter="design">设计与图片</button>
+          <button class="filter" data-filter="video">视频与音频</button>
+          <button class="filter" data-filter="dev">开发与数据</button>
+          <button class="filter" data-filter="business">商业与增长</button>
+        </div>
+        <div class="category-links">
+          <a href="category.html?cat=writing">写作工具页</a>
+          <a href="category.html?cat=design">设计工具页</a>
+          <a href="category.html?cat=video">视频工具页</a>
+          <a href="category.html?cat=dev">开发工具页</a>
+          <a href="category.html?cat=business">商业工具页</a>
+        </div>
+      </section>
+
+      <section class="cards" id="cards"></section>
+
+      <section class="sponsors" id="sponsors">
+        <div class="sponsor-card">
+          <div>
+            <p class="sponsor-label">Sponsored</p>
+            <h3>这块是付费置顶位</h3>
+            <p>流量稳定后开启。可用于加急收录、品牌曝光或周报赞助。</p>
+          </div>
+          <a class="primary" href="mailto:qusabc123@outlook.com?subject=锦鲤导航%20赞助咨询">了解置顶方案</a>
+        </div>
+      </section>
+
+      <section class="pricing" id="pricing">
+        <div class="featured-head">
+          <h2>收录与推广定价</h2>
+          <p>适合早期产品冷启动。提交工具时可选择对应套餐。</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>基础收录</h3>
+            <p class="price-tag">免费</p>
+            <p>7-14 天审核，分类展示，基础信息收录。</p>
+            <div class="price-actions">
+              <a href="#submit">提交工具</a>
+            </div>
+          </div>
+          <div class="price-card highlight">
+            <h3>加急收录</h3>
+            <p class="price-tag">￥199</p>
+            <p>48 小时内审核，首页分类置顶 7 天。</p>
+            <div class="price-actions">
+              <a class="primary-link" href="payment.html?plan=fast">立即支付</a>
+              <a href="#submit">提交工具</a>
+            </div>
+          </div>
+          <div class="price-card">
+            <h3>品牌赞助</h3>
+            <p class="price-tag">￥899 / 月</p>
+            <p>首页赞助位展示，周报推荐 2 次。</p>
+            <div class="price-actions">
+              <a class="primary-link" href="payment.html?plan=sponsor">立即支付</a>
+              <a href="mailto:qusabc123@outlook.com?subject=锦鲤导航%20赞助咨询">联系合作</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="collections" id="collections">
+        <div class="collection-card">
+          <h3>工作流模板</h3>
+          <p>从需求拆解到交付的 AI 流程模板，适合个人与团队复用。</p>
+          <button class="ghost">查看模板</button>
+        </div>
+        <div class="collection-card">
+          <h3>团队清单</h3>
+          <p>为市场、产品、客服、设计团队整理的必备 AI 工具包。</p>
+          <button class="ghost">查看清单</button>
+        </div>
+        <div class="collection-card">
+          <h3>新工具雷达</h3>
+          <p>持续整理新工具与趋势，定期更新到清单中。</p>
+          <button class="ghost" data-action="newsletter">订阅雷达</button>
+        </div>
+      </section>
+
+      <section class="newsletter" id="newsletter">
+        <div>
+          <h2>每周 AI 工具清单</h2>
+          <p>只发精选，不刷屏。订阅后每周收到最新工具与最佳实践。</p>
+        </div>
+        <form class="newsletter-form" method="POST" action="/.netlify/functions/subscribe">
+          <input type="hidden" name="source" value="homepage" />
+          <input type="email" id="newsletterEmail" name="email" placeholder="你的邮箱" required />
+          <button class="primary" type="submit">订阅</button>
+        </form>
+        <p class="form-hint">提交后我们会发送一封确认邮件。</p>
+      </section>
+
+      <section class="cta" id="submit">
+        <div>
+          <h2>提交你的工具</h2>
+          <p>让更多人发现你的 AI 产品。提交后会尽快审核上线。</p>
+        </div>
+        <form class="submit-form" method="POST" action="/.netlify/functions/submit-tool">
+          <input type="hidden" name="source" value="homepage" />
+          <input type="text" name="name" placeholder="工具名称" required />
+          <input type="url" name="url" placeholder="官网链接" required />
+          <input type="text" name="pricing" placeholder="价格或计费方式" required />
+          <input type="email" name="email" placeholder="联系邮箱" required />
+          <select name="category" required>
+            <option value="">选择分类</option>
+            <option value="writing">写作与文案</option>
+            <option value="design">设计与图片</option>
+            <option value="video">视频与音频</option>
+            <option value="dev">开发与数据</option>
+            <option value="business">商业与增长</option>
+          </select>
+          <select name="plan" required>
+            <option value="">选择套餐</option>
+            <option value="free">基础收录（免费）</option>
+            <option value="fast">加急收录（￥199）</option>
+            <option value="sponsor">品牌赞助（￥899 / 月）</option>
+          </select>
+          <input type="text" name="payment_ref" placeholder="支付订单号/备注（可选）" />
+          <input type="url" name="payment_proof" placeholder="支付截图链接（可选）" />
+          <textarea name="description" rows="3" placeholder="一句话描述与适用场景" required></textarea>
+          <button class="primary" type="submit">提交工具</button>
+        </form>
+        <p class="form-hint">选择付费套餐后可前往 <a href="payment.html">支付页面</a> 完成支付。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h4>锦鲤</h4>
+        <p>帮助你构建更高效的 AI 工具组合。</p>
+      </div>
+      <div>
+        <h4>导航</h4>
+        <a href="#discover">发现</a>
+        <a href="#collections">精选</a>
+        <a href="#submit">提交</a>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <p>qusabc123@outlook.com</p>
+        <p>上海 · 远程</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
